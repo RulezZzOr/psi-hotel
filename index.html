@@ -3,41 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psí Hotel - Dostupnost a kontakt</title>
+    <title>Psí hotel U Veselé tlapky</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background-color: #333; color: #fff; text-align: center; padding: 1em; }
-        section { padding: 2em; }
-        .calendar { text-align: center; }
-        .contact { margin-top: 2em; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
-        .gallery img { width: 30%; margin: 1%; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #0288d1, #4CAF50, #f06292, #ffeb3b, #0288d1);
+            background-size: 400%;
+            color: #1a237e;
+            animation: rainbow-bg 15s ease infinite;
+        }
+        @keyframes rainbow-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 400% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        header {
+            background: linear-gradient(90deg, #0288d1, #4CAF50);
+            color: white;
+            text-align: center;
+            padding: 2em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .contact-info, .gallery, .calendar {
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .contact-info h2, .gallery h2, .calendar h2 {
+            color: #0288d1;
+            text-align: center;
+        }
+        .contact-info p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #1a237e;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #4CAF50;
+            transition: transform 0.3s, filter 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            filter: hue-rotate(360deg);
+            animation: rainbow 3s linear infinite;
+        }
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        .calendar {
+            background: linear-gradient(to bottom, #bbdefb, #c8e6c9);
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            text-align: center;
+        }
+        .calendar-grid div {
+            padding: 12px;
+            border: 2px solid #0288d1;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .calendar-grid .header {
+            background: linear-gradient(45deg, #0288d1, #4CAF50);
+            color: white;
+            font-weight: bold;
+        }
+        .calendar-grid .free {
+            background-color: #b3e5fc;
+            color: #1a237e;
+        }
+        .calendar-grid .free:hover {
+            background-color: #81d4fa;
+        }
+        .calendar-grid .occupied {
+            background-color: #ffccbc;
+            color: #b71c1c;
+        }
+        .calendar-grid .occupied:hover {
+            background-color: #ffab91;
+        }
+        @media (max-width: 600px) {
+            .calendar-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Psí Hotel</h1>
-        <p>Dostupnost a kontaktní informace</p>
+        <h1>Psí hotel U Veselé tlapky</h1>
+        <p>Váš domov pro čtyřnohé přátele!</p>
     </header>
-    <section class="calendar">
-        <h2>Dostupnost</h2>
-        <!-- Sem vložíte kód kalendáře z Elfsight -->
-        <!-- Elfsight Appointment Booking | Untitled Appointment Booking -->
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
-<div class="elfsight-app-d7650e49-3922-47eb-b95e-7ef3c0d01b65" data-elfsight-app-lazy></div>
-        <script src="https://static.elfsight.com/platform/platform.js" defer></script>
-    </section>
-    <section class="contact">
-        <h2>Kontakt</h2>
-        <p>E-mail: vas.email@priklad.cz</p>
-        <p>Telefon: +420 123 456 789</p>
-        <p>Adresa: Ulice 123, Město, PSČ</p>
-    </section>
-    <section class="gallery">
-        <h2>Fotogalerie</h2>
-        <img src="photo1.jpg" alt="Foto 1">
-        <img src="photo2.jpg" alt="Foto 2">
-        <img src="photo3.jpg" alt="Foto 3">
-    </section>
+    <div class="container">
+        <section class="contact-info">
+            <h2>Kontaktujte nás</h2>
+            <p><strong>Email:</strong> info@psihotel.cz</p>
+            <p><strong>Telefon:</strong> +420 123 456 789</p>
+            <p><strong>Adresa:</strong> Veselá 123, 123 00 Praha, Česká republika</p>
+        </section>
+
+        <section class="gallery">
+            <h2>Fotky našeho hotelu</h2>
+            <img src="https://via.placeholder.com/300x200?text=Fotka+1" alt="Psí hotel 1">
+            <img src="https://via.placeholder.com/300x200?text=Fotka+2" alt="Psí hotel 2">
+            <img src="https://via.placeholder.com/300x200?text=Fotka+3" alt="Psí hotel 3">
+        </section>
+
+        <section class="calendar">
+            <h2>Kalendář obsazenosti</h2>
+            <div class="calendar-grid">
+                <div class="header">Po</div>
+                <div class="header">Út</div>
+                <div class="header">St</div>
+                <div class="header">Čt</div>
+                <div class="header">Pá</div>
+                <div class="header">So</div>
+                <div class="header">Ne</div>
+                <div class="free">1</div>
+                <div class="free">2</div>
+                <div class="occupied">3</div>
+                <div class="occupied">4</div>
+                <div class="free">5</div>
+                <div class="free">6</div>
+                <div class="free">7</div>
+                <div class="free">8</div>
+                <div class="occupied">9</div>
+                <div class="occupied">10</div>
+                <div class="free">11</div>
+                <div class="free">12</div>
+                <div class="free">13</div>
+                <div class="free">14</div>
+                <div class="free">15</div>
+                <div class="free">16</div>
+                <div class="free">17</div>
+                <div class="occupied">18</div>
+                <div class="occupied">19</div>
+                <div class="free">20</div>
+                <div class="free">21</div>
+                <div class="free">22</div>
+                <div class="free">23</div>
+                <div class="free">24</div>
+                <div class="occupied">25</div>
+                <div class="occupied">26</div>
+                <div class="free">27</div>
+                <div class="free">28</div>
+                <div class="free">29</div>
+                <div class="free">30</div>
+                <div class="free">31</div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
