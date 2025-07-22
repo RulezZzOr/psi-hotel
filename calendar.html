@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalendář obsazenosti - Psí hotel U Veselé tlapky</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #0288d1, #4CAF50, #f06292, #ffeb3b, #0288d1);
+            background-size: 400%;
+            color: #1a237e;
+            animation: rainbow-bg 15s ease infinite;
+        }
+        @keyframes rainbow-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 400% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        header {
+            background: linear-gradient(90deg, #0288d1, #4CAF50);
+            color: white;
+            text-align: center;
+            padding: 2em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .calendar {
+            background: linear-gradient(to bottom, #bbdefb, #c8e6c9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .calendar h2 {
+            color: #0288d1;
+            text-align: center;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            text-align: center;
+        }
+        .calendar-grid div {
+            padding: 12px;
+            border: 2px solid #0288d1;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .calendar-grid div:hover::after {
+            content: attr(data-status);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0288d1;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            z-index: 10;
+        }
+        .calendar-grid .header {
+            background: linear-gradient(45deg, #0288d1, #4CAF50);
+            color: white;
+            font-weight: bold;
+            cursor: default;
+        }
+        .calendar-grid .header:hover::after {
+            content: none;
+        }
+        .calendar-grid .free {
+            background-color: #b3e5fc;
+            color: #1a237e;
+        }
+        .calendar-grid .free:hover {
+            background-color: #81d4fa;
+            transform: scale(1.05);
+        }
+        .calendar-grid .occupied {
+            background-color: #ffccbc;
+            color: #b71c1c;
+        }
+        .calendar-grid .occupied:hover {
+            background-color: #ffab91;
+            transform: scale(1.05);
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        .back-link a {
+            color: #0288d1;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-link a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        @media (max-width: 600px) {
+            .calendar-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kalendář obsazenosti - Psí hotel U Veselé tlapky</h1>
+        <p>Zkontrolujte dostupnost pro vaše čtyřnohé přátele!</p>
+    </header>
+    <div class="container">
+        <div class="back-link">
+            <a href="index.html">Zpět na hlavní stránku</a>
+        </div>
+        <section class="calendar">
+            <h2>Kalendář obsazenosti</h2>
+            <div class="calendar-grid">
+                <div class="header">Po</div>
+                <div class="header">Út</div>
+                <div class="header">St</div>
+                <div class="header">Čt</div>
+                <div class="header">Pá</div>
+                <div class="header">So</div>
+                <div class="header">Ne</div>
+                <div class="free" data-status="Volno">1</div>
+                <div class="free" data-status="Volno">2</div>
+                <div class="occupied" data-status="Obsazeno">3</div>
+                <div class="occupied" data-status="Obsazeno">4</div>
+                <div class="free" data-status="Volno">5</div>
+                <div class="free" data-status="Volno">6</div>
+                <div class="free" data-status="Volno">7</div>
+                <div class="free" data-status="Volno">8</div>
+                <div class="occupied" data-status="Obsazeno">9</div>
+                <div class="occupied" data-status="Obsazeno">10</div>
+                <div class="free" data-status="Volno">11</div>
+                <div class="free" data-status="Volno">12</div>
+                <div class="free" data-status="Volno">13</div>
+                <div class="free" data-status="Volno">14</div>
+                <div class="free" data-status="Volno">15</div>
+                <div class="free" data-status="Volno">16</div>
+                <div class="free" data-status="Volno">17</div>
+                <div class="occupied" data-status="Obsazeno">18</div>
+                <div class="occupied" data-status="Obsazeno">19</div>
+                <div class="free" data-status="Volno">20</div>
+                <div class="free" data-status="Volno">21</div>
+                <div class="free" data-status="Volno">22</div>
+                <div class="free" data-status="Volno">23</div>
+                <div class="free" data-status="Volno">24</div>
+                <div class="occupied" data-status="Obsazeno">25</div>
+                <div class="occupied" data-status="Obsazeno">26</div>
+                <div class="free" data-status="Volno">27</div>
+                <div class="free" data-status="Volno">28</div>
+                <div class="free" data-status="Volno">29</div>
+                <div class="free" data-status="Volno">30</div>
+                <div class="free" data-status="Volno">31</div>
+            </div>
+        </section>
+    </div>
+    <script>
+        document.querySelectorAll('.calendar-grid div:not(.header)').forEach(day => {
+            day.addEventListener('click', () => {
+                if (day.classList.contains('free')) {
+                    day.classList.remove('free');
+                    day.classList.add('occupied');
+                    day.setAttribute('data-status', 'Obsazeno');
+                } else {
+                    day.classList.remove('occupied');
+                    day.classList.add('free');
+                    day.setAttribute('data-status', 'Volno');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
